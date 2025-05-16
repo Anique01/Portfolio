@@ -97,7 +97,7 @@ a:active {
 .theme-toggle-button .icon {
     width: 32px;
     height: 32px;
-    fill: var(--darkText);
+    fill: var(--darkText); 
 }
 
 .theme-toggle-button:hover .icon {
