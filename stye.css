@@ -35,7 +35,6 @@ body.dark {
 
 /* HEADER STYLES */
 .header {
-    background-color: var(--accent);
     color: var(--darkText);
     display: flex;
     align-items: center;
@@ -44,6 +43,11 @@ body.dark {
     width: 100%;
     line-height: 1.2;
     z-index: 100;
+    transition: opacity 0.1s ease;
+}
+
+.header-hidden {
+    opacity: 0;
 }
 
 .logo {
@@ -77,7 +81,7 @@ li {
 }
 
 li:hover {
-    color: var(--lightText);
+    color: var(--accent);
 }
 
 a {
@@ -86,11 +90,11 @@ a {
 }
 
 a:hover {
-    color: var(--lightText);
+    color: var(--accent);
 }
 
 a:active {
-    color: var(--darkBg);
+    color: var(--accent);
 }
 
 .theme-toggle-button {
@@ -110,12 +114,12 @@ a:active {
 }
 
 .theme-toggle-button:hover .icon {
-    fill: var(--lightText);
+    fill: var(--accent);
 }
 
 /* MAIN CONTENT STYLES */
 .welcome {
-    padding-top: 200px; /* Space for fixed header */
+    padding-top: 80px; 
     padding-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
@@ -124,23 +128,58 @@ a:active {
     max-width: 1200px;
     margin: 0 auto;
     flex: 1;
-    min-height: calc(100vh - 180px); /* Ensures content takes available space */
 }
 
 .welcomeText {
     flex: 1 1 500px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .welcomeText h1 {
     margin-bottom: 20px;
-    font-size: 2rem;
+    font-size: 36px;
 }
 
 .welcomeText p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 18px;
 }
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filled {
+    background-color: var(--accent);
+    color: var(--lightText);
+}
+
+.filled:hover {
+    background-color: var(--darkBg);
+    color: var(--lightText);
+}
+
+.outlined {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.outlined:hover {
+    background-color: var(--accent);
+    color: var(--darkText);
+}
+
 
 .welcomePic {
     flex: 1 1 400px;
@@ -152,6 +191,7 @@ a:active {
 
 .welcomePic img {
     max-width: 100%;
+    width: 400px;
     height: auto;
 }
 

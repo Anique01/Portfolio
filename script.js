@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateLogos = () => {
     logoImages.forEach(logo => {
       if (body.classList.contains("dark")) {
-        logo.src = "Logo/Light.png"; 
+        logo.src = "Logo/CompleteDark.png"; 
         logo.alt = "Dark Mode Logo";
       } else {
-        logo.src = "Logo/Dark.png"; 
+        logo.src = "Logo/CompleteLight.png"; 
         logo.alt = "Light Mode Logo";
       }
     });
@@ -33,4 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.remove("dark"); 
   }
   updateLogos(); 
+});
+
+const header = document.querySelector('.header');
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+  lastScrollY = window.scrollY;
+  
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      // When scrolling down more than 100px, add the hidden class
+      if (lastScrollY > 70) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
